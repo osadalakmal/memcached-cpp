@@ -1,3 +1,10 @@
+Debug/
+cppcheck.list
+memcached.batch_build
+memcached.tags
+memcached.txt
+memcached.workspace.session
+snappy
 # Compiled Object files
 *.slo
 *.lo
@@ -10,3 +17,4 @@
 *.lai
 *.la
 *.a
+
