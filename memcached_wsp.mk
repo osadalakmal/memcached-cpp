@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo ----------Building project:[ memcached - Debug ]----------
-	@"$(MAKE)" -f "memcached.mk"
+	@echo ----------Building project:[ memcached_test - Debug ]----------
+	@cd "memcached_test" && "$(MAKE)" -f "memcached_test.mk"
 clean:
-	@echo ----------Cleaning project:[ memcached - Debug ]----------
-	@"$(MAKE)" -f "memcached.mk" clean
+	@echo ----------Cleaning project:[ memcached_test - Debug ]----------
+	@cd "memcached_test" && "$(MAKE)" -f "memcached_test.mk" clean

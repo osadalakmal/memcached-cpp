@@ -1,6 +1,11 @@
 #include "../mc_server_handle.h"
 #include "gtest/gtest.h"
+#include <fstream>
+#include <chrono>
+#include <iomanip>
 #include <snappy.h>
+#include "person.pb.h"
+#include "google/protobuf/io/zero_copy_stream_impl.h"
 
 class McServerHandleTest : public ::testing::Test {
  protected:
@@ -85,7 +90,6 @@ TEST_F(McServerHandleTest,GetSetCompressedTest) {
 	ASSERT_TRUE(p_flags!=0);
 }
 
-
 TEST_F(McServerHandleTest,CheckKeyExistAndDelete) {
 	const char* key1 = "testkey1";
 	con_mch.deleteKeyFromServer(key1,strlen(key1));
@@ -97,7 +101,7 @@ TEST_F(McServerHandleTest,CheckKeyExistAndDelete) {
 }
 
 TEST_F(McServerHandleTest,MultiGet) {
-	char* keys = {"testKey1","testKey2","testKey3"};
+	char* keys[] = {"testKey1","testKey2","testKey3"};
 	size_t keyLen[] = {strlen("testKey1"),strlen("testKey2"),strlen("testKey3")};
 	const char* data[] = {"testData1","testData2","testData3"};
 	const size_t dataLen[] = {strlen("testData1"),strlen("testData2"),strlen("testData3")};

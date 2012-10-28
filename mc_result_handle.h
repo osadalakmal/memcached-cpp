@@ -13,10 +13,10 @@ namespace osada
 class McResultHandle
 {
 	//std::allocator d_allocator;
-	memcached_result_st d_result;
+	memcached_result_st *d_result;
 public:
 	McResultHandle(const memcached_st* p_memc) {
-		if (memcached_result_create(p_memc,&d_result) == NULL) {
+		if (memcached_result_create(p_memc,d_result) == NULL) {
 			throw std::runtime_error("Could not allocate memcached result st");
 		}
 	}
